@@ -16,4 +16,5 @@
     <color name="bgHomeView">#5FADA0</color>
     <color name="bgInfo">#C5DEE2</color>
     <color name="darkgray">#848484</color>
+    <color name="textcolor">#385277</color>
 </resources>

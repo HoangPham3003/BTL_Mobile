@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/aldrich</item>
         <item>@font/amarante</item>
+        <item>@font/be_vietnam_light</item>
         <item>@font/overpass</item>
         <item>@font/shojumaru</item>
     </array>
