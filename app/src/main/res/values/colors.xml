@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#7034FF</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="navigationBarColor">#6200EE</color>
+    <color name="notificationColor">#FAAC0E</color>
+    <color name="bgHomeView">#5FADA0</color>
+    <color name="bgInfo">#C5DEE2</color>
+    <color name="darkgray">#848484</color>
 </resources>

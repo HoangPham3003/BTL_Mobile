@@ -1,94 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl1"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5FADA0"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/botrontraiduoi" />
+
+    <ImageView
+        android:id="@+id/account"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/bgHomeView"
+        android:src="@drawable/account_icon" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:src="@drawable/logo"
+        android:layout_width="55dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="340dp"/>
+
+    <EditText
+        android:id="@+id/note_search"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="70dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="Tim kiem"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
     <TextView
-        android:id="@+id/textView"
+        android:text="Cac ghi chu gan day"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="20dp"/>
+
+    <ListView
+        android:id="@+id/lv_all"
+        android:layout_width="match_parent"
+        android:layout_height="337dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:background="@color/white"
+        android:dividerHeight="3dp">
+
+    </ListView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="24dp"
-        android:text="Bắt đầu thôi!"
-        android:textColor="#385277"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:clickable="true"
+        android:onClick="bu_add_edit_activity"
+        app:srcCompat="@drawable/add_note" />
+    <!--    <Button-->
+<!--        android:text="Click Here!"-->
+<!--        android:layout_marginLeft="320dp"-->
+<!--        android:layout_marginTop="600dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:id="@+id/floating_add_bu"-->
+<!--        android:onClick="bu_add_edit_activity"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="29dp" />
+<!--    <Button-->
+<!--        android:id="@+id/floatingActionButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="320dp"-->
+<!--        android:layout_marginTop="600dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:onClick="bu_add_edit_activity"-->
+<!--        android:text="Alo"/>-->
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="17dp" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="361dp"
-        android:layout_height="279dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="288dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:srcCompat="@drawable/img_2" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="224dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="324dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:srcCompat="@drawable/img_1" />
-
-    <Button
-        android:id="@+id/btn_signup"
-        android:layout_width="226dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="492dp"
-        android:backgroundTint="#F6C09E"
-        android:text="Đăng ký"
-        android:textColor="#385277"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="226dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="432dp"
-        android:backgroundTint="#F6C09E"
-        android:hapticFeedbackEnabled="true"
-        android:text="Đăng nhập"
-        android:textColor="#385277"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="273dp"
-        android:layout_height="164dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:srcCompat="@drawable/img_3" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
