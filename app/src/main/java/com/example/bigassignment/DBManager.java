@@ -31,15 +31,22 @@ public class DBManager {
 
     // Table Note
     static final String Note_TableName="Note";
+    static final String Note_Account_ID="Account_ID";
     static final String Note_ColDateTime="DateTime";
     static final String Note_ColTitle="Title";
     static final String Note_ColDescription="Description";
     static final String Note_ColRemTime="Time";
-    static final String Nope_ColRemDate="Date";
+    static final String Note_ColRemDate="Date";
     static final String Note_ColID="ID";
     static final String Sql_CreateTableNote = "Create table IF NOT EXISTS "+Note_TableName +
-            "(ID integer primary key autoincrement,"+Note_ColDateTime+
-            " text,"+Note_ColTitle+" text,"+Note_ColDescription+" text,"+Note_ColRemTime+" text,"+Nope_ColRemDate+" text);";
+            "(ID integer primary key autoincrement,"+
+            Note_ColDateTime+ " text,"+
+            Note_ColTitle+" text,"+
+            Note_ColDescription+" text,"+
+            Note_ColRemTime+" text,"+
+            Note_ColRemDate+" text,"+
+            Note_Account_ID + " integer,"+
+            " FOREIGN KEY ("+Note_Account_ID+") REFERENCES "+Account_TableName+"("+Account_ColID+"));";
 
 
     static class DatabaseHelperUser extends SQLiteOpenHelper {
@@ -53,8 +60,7 @@ public class DBManager {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-
-            Toast.makeText(context, "Keep Notes", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Note database created", Toast.LENGTH_LONG).show();
             db.execSQL(Sql_CreateTableAccount);
             db.execSQL(Sql_CreateTableNote);
         }
@@ -68,8 +74,8 @@ public class DBManager {
     }
 
     DBManager(Context context){
-        DatabaseHelperUser db=new DatabaseHelperUser(context);
-        sqlDB=db.getWritableDatabase();
+        DatabaseHelperUser db = new DatabaseHelperUser(context);
+        sqlDB = db.getWritableDatabase();
     }
 
     public long Insert(ContentValues values, String table_name){

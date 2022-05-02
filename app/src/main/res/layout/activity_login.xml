@@ -15,7 +15,7 @@
         android:layout_marginTop="48dp"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/logo_white" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"

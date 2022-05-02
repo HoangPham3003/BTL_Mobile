@@ -3,6 +3,8 @@ package com.example.bigassignment;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,28 +48,38 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void add_account() {
-        String inp_fname = fname.getText().toString();
-        String inp_email = email.getText().toString();
-        String inp_pwd = pwd.getText().toString();
-        String inp_pwd_retyped = pwd_retyped.getText().toString();
+        String inp_fname = fname.getText().toString().trim();
+        String inp_email = email.getText().toString().trim();
+        String inp_pwd = pwd.getText().toString().trim();
+        String inp_pwd_retyped = pwd_retyped.getText().toString().trim();
         System.out.println(inp_fname + " " + inp_email + " " + inp_pwd + " " + inp_pwd_retyped);
 
-        if (!inp_pwd.trim().equals(inp_pwd_retyped.trim())) {
+        if (inp_fname.equals("") || inp_email.equals("") || inp_pwd.equals("") || inp_pwd_retyped.equals("")) {
+            Toast.makeText(this, "Chưa nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
+        }
+        else if (!inp_pwd.equals(inp_pwd_retyped)) {
             Toast.makeText(this, "Mật khẩu nhập lại phải giống với mật khẩu nhập vào!", Toast.LENGTH_SHORT).show();
         }
         else {
-            ContentValues values = new ContentValues();
-            values.put(DBManager.Account_ColFullName, inp_fname);
-            values.put(DBManager.Account_ColEmail, inp_email);
-            values.put(DBManager.Account_ColPassword, inp_pwd_retyped);
+            // Get a specified account
+            String[] SelectionArgs = {inp_email};
+            Cursor cursor = dbManager.query("Account", null, "Email=?", SelectionArgs, null);
+            if ((cursor != null) && (cursor.moveToFirst())) {
+                Toast.makeText(getApplicationContext(), "Email đã tồn tại!", Toast.LENGTH_SHORT).show();
+            } else {
+                ContentValues values = new ContentValues();
+                values.put(DBManager.Account_ColFullName, inp_fname);
+                values.put(DBManager.Account_ColEmail, inp_email);
+                values.put(DBManager.Account_ColPassword, inp_pwd_retyped);
 
-            String table_name = "Account";
-            long id = dbManager.Insert(values, table_name);
-            if (id > 0) {
-                Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
-                finish();
-            } else
-                Toast.makeText(getApplicationContext(), "Tạo tài khoản thất bại!", Toast.LENGTH_SHORT).show();
+                String table_name = "Account";
+                long id = dbManager.Insert(values, table_name);
+                if (id > 0) {
+                    Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else
+                    Toast.makeText(getApplicationContext(), "Tạo tài khoản thất bại!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

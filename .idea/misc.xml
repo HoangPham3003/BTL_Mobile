@@ -3,9 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/drawable/bg_note_search.xml" value="0.1" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/drawable/radius_left_bottom.xml" value="0.1" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/drawable/rounded_4corner_light_blue.xml" value="0.1025" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/drawable/rounded_corner_listbox.xml" value="0.1" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/drawable/rounded_corner_main_color.xml" value="0.1" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/drawable/rounded_left_top_page.xml" value="0.1025" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/font/aldrich.xml" value="0.1" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/font/be_vietnam_light.xml" value="0.18981481481481483" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/font/overpass.xml" value="0.1" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/font/shojumaru.xml" value="0.1" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_account.xml" value="0.25" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_all_notes.xml" value="0.2477355072463768" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_change_pwd.xml" value="0.22282608695652173" />
         <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_login.xml" value="0.1803921568627451" />
         <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_main3.xml" value="0.2477355072463768" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_new_note.xml" value="0.2477355072463768" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_pop_date.xml" value="0.24094202898550723" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_pop_reminder.xml" value="0.24094202898550723" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_pop_time.xml" value="0.24094202898550723" />
         <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/activity_signup.xml" value="0.2" />
+        <entry key="..\:/Nam4_Ki2/LapTrinhMobile/Assignment/BigAS/BigAssignment/app/src/main/res/layout/layout_ticket.xml" value="0.2477355072463768" />
       </map>
     </option>
   </component>

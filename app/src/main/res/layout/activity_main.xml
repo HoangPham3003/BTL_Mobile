@@ -52,7 +52,7 @@
         android:layout_marginTop="324dp"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:srcCompat="@drawable/img_1" />
+        app:srcCompat="@drawable/logo_black" />
 
     <Button
         android:id="@+id/btn_signup"

@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#80808080</color>
+    <color name="notificationColor">#FAAC0E</color>
+    <color name="bgHomeView">#5FADA0</color>
 </resources>
