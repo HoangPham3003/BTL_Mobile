@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgHomeView"
     tools:context=".ChangePwdActivity">
 
     <ImageView
@@ -32,9 +33,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-            android:src="@drawable/back_icon"
             android:clickable="true"
             android:onClick="turn_back"
+            android:src="@drawable/back_icon"
             tools:ignore="OnClick" />
 
         <TextView
@@ -75,8 +76,8 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/account_icon" />
         "
     </LinearLayout>

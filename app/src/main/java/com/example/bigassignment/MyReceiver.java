@@ -73,7 +73,7 @@ public class MyReceiver extends BroadcastReceiver {
                 // notificationId is a unique int for each notification that you must define
                 notificationManager.notify(notification_id, builder.build());
 
-                Toast.makeText(context, b.getString("AlarmMessage"), Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, b.getString("AlarmMessage"), Toast.LENGTH_LONG).show();
             }
             else{
                 System.out.println("Notification also canceled for "+notification_id);

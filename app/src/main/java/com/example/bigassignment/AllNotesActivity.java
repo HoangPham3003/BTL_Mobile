@@ -38,7 +38,6 @@ public class AllNotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_notes);
         Init();
         getdatabaseinfo(1,"ignore");
-//        createNotificationChannel();
     }
 
     private void Init() {
@@ -46,7 +45,7 @@ public class AllNotesActivity extends AppCompatActivity {
         this.user_id = intent.getStringExtra("user_id");
         System.out.println("User id: " + user_id);
 
-        Toast.makeText(getApplicationContext(),"Xin chào!",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),"Xin chào!",Toast.LENGTH_SHORT).show();
         dbManager=new DBManager(this);
 
         set_search_engine();
@@ -86,26 +85,6 @@ public class AllNotesActivity extends AppCompatActivity {
         add_edit_act_intent1.putExtra("rem_time","ignore");
         add_edit_act_intent1.putExtra("rem_date","ignore");
         startActivityForResult(add_edit_act_intent1,3);
-    }
-
-    private void createNotificationChannel() {
-        String CHANNEL_ID="ReminderID";
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = getString(R.string.channel_name);
-            String description = getString(R.string.channel_description);
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-            channel.enableVibration(true);
-            channel.setLightColor(Color.RED);
-            channel.setVibrationPattern(new long[]{0});
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
     }
 
     ArrayList<AdapterItems> listnewsData = new ArrayList<AdapterItems>();
@@ -178,7 +157,7 @@ public class AllNotesActivity extends AppCompatActivity {
 
             final AdapterItems s = listnewsDataAdpater.get(position);
 
-            String rem_DateTime=s.Time+" "+s.Date;
+            String rem_DateTime = s.Time+" "+s.Date;
             txt_datetime_rem=(TextView)myView.findViewById(R.id.date_time_id_rem);
 
             if(s.Time.equalsIgnoreCase("notset")) {
@@ -195,14 +174,26 @@ public class AllNotesActivity extends AppCompatActivity {
             txt_desc=(TextView)myView.findViewById(R.id.desc_tv2);
             txt_desc.setText(s.Description);
 
+            txt_title.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RecordID = s.ID;
+                    RecordTitle = s.Title;
+                    RecordDesc = s.Description;
+                    RecordDateRem = s.Date;
+                    RecordTimeRem = s.Time;
+                    update_element_new();
+                }
+            });
+
             txt_desc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    RecordID=s.ID;
-                    RecordTitle=s.Title;
-                    RecordDesc=s.Description;
-                    RecordDateRem=s.Date;
-                    RecordTimeRem=s.Time;
+                    RecordID = s.ID;
+                    RecordTitle = s.Title;
+                    RecordDesc = s.Description;
+                    RecordDateRem = s.Date;
+                    RecordTimeRem = s.Time;
                     update_element_new();
                 }
             });
