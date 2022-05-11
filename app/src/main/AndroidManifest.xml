@@ -16,7 +16,7 @@
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.akash.SnoozeReceiver" />
+                <action android:name="com.me.SnoozeReceiver" />
             </intent-filter>
         </receiver>
         <receiver
@@ -24,7 +24,7 @@
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.akashmanna.rem" />
+                <action android:name="com.me.rem" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

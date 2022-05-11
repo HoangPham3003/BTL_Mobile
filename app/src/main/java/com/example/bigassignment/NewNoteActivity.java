@@ -215,7 +215,8 @@ public class NewNoteActivity extends AppCompatActivity {
         System.out.println(am);
 
         Intent intent = new Intent(NewNoteActivity.this, MyReceiver.class);
-        intent.setAction("com.akashmanna.rem");
+//        intent.setAction("com.akashmanna.rem");
+        intent.setAction("com.me.rem");
 
         String msg1="Hello from Note!!!";
         intent.putExtra("AlarmMessage",msg1);

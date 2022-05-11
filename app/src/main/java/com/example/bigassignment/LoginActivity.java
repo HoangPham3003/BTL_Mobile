@@ -51,17 +51,6 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Chưa nhập đủ thông tin!",Toast.LENGTH_SHORT).show();
         }
         else {
-
-            // Get all account
-//            Cursor cursor = dbManager.query("Account", null, null, null, null);
-//            while ((cursor != null) && (cursor.moveToNext())) {
-//                int id = cursor.getInt(0);
-//                String fname = cursor.getString(1);
-//                String email = cursor.getString(2);
-//                String password = cursor.getString(3);
-//                System.out.println(id + " " + fname + " " + email + " " + password);
-//        }
-
             // Get a specified account
             String[] SelectionArgs = {inp_email};
             Cursor cursor = dbManager.query("Account", null, "Email=?", SelectionArgs, null);
@@ -70,14 +59,17 @@ public class LoginActivity extends AppCompatActivity {
                 String fname = cursor.getString(1);
                 String email = cursor.getString(2);
                 String password = cursor.getString(3);
-                System.out.println(id + " " + fname + " " + email + " " + password);
 
-                if (!password.equals(inp_pwd)) {
+                UserModel user = new UserModel(id, fname, email, password);
+                System.out.println(user.getUser_id() + " " + user.getFull_name() + " "
+                        + user.getEmail() + " " + user.getPassword());
+
+                if (!user.getPassword().equals(inp_pwd)) {
                     Toast.makeText(getApplicationContext(), "Sai mật khẩu!", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent();
                     intent.setClass(LoginActivity.this, AllNotesActivity.class);
-                    intent.putExtra("user_id", ""+id);
+                    intent.putExtra("user_id", ""+user.getUser_id());
                     startActivity(intent);
                 }
             } else {

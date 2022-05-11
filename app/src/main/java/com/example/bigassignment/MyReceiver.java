@@ -16,7 +16,7 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         System.out.println("You are here MyReceiver.onReceive func !!!");
-        if(intent.getAction().equalsIgnoreCase("com.akashmanna.rem")) {
+        if(intent.getAction().equalsIgnoreCase("com.me.rem")) {
             Bundle b = intent.getExtras();
 
             Integer notification_id = Integer.parseInt(b.getString("NotiID"));
@@ -41,7 +41,7 @@ public class MyReceiver extends BroadcastReceiver {
                 PendingIntent pendingIntent1 = PendingIntent.getActivity(context, notification_id, intent_notification, 0);
 
                 Intent snoozeButton = new Intent(context, SnoozeReceiver.class);
-                snoozeButton.setAction("com.akash.SnoozeReceiver");
+                snoozeButton.setAction("com.me.SnoozeReceiver");
                 snoozeButton.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
                 PendingIntent pendingSwitchIntent = PendingIntent.getBroadcast(context, notification_id, snoozeButton, 0);
@@ -70,21 +70,17 @@ public class MyReceiver extends BroadcastReceiver {
                         .setGroupSummary(true);
                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
-                // notificationId is a unique int for each notification that you must define
                 notificationManager.notify(notification_id, builder.build());
-
-//                Toast.makeText(context, b.getString("AlarmMessage"), Toast.LENGTH_LONG).show();
             }
             else{
                 System.out.println("Notification also canceled for "+notification_id);
                 NotificationManagerCompat notificationManager1 = NotificationManagerCompat.from(context);
 
-                // notificationId is a unique int for each notification that you must define
                 notificationManager1.cancel(notification_id);
             }
         }
         else if(intent.getAction().equalsIgnoreCase("android.intent.action.BOOT_COMPLETED")){
-            // phone restart
+
         }
     }
 }

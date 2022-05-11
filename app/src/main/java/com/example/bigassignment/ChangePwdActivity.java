@@ -69,42 +69,7 @@ public class ChangePwdActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String inp_old_pwd = old_pwd.getText().toString().trim();
-                String inp_new_pwd = new_pwd.getText().toString().trim();
-                String inp_new_pwd_retyped = new_pwd_retyped.getText().toString().trim();
-
-                if (inp_old_pwd.equals("") || inp_new_pwd.equals("") || inp_new_pwd_retyped.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Chưa nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
-                }
-                else if (!inp_old_pwd.equals(password)){
-                    Toast.makeText(getApplicationContext(), "Sai mật khẩu cũ!", Toast.LENGTH_SHORT).show();
-                }
-                else if (inp_new_pwd.equals(password)){
-                    Toast.makeText(getApplicationContext(), "Mật khẩu mới phải khác mật khẩu cũ!", Toast.LENGTH_SHORT).show();
-                }
-                else if (!inp_new_pwd.equals(inp_new_pwd_retyped)){
-                    Toast.makeText(getApplicationContext(), "Mật khẩu mới và mật khẩu nhập lại phải giống nhau!", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    ContentValues values = new ContentValues();
-
-                    values.put(DBManager.Account_ColFullName, fname);
-                    values.put(DBManager.Account_ColEmail, email);
-                    values.put(DBManager.Account_ColPassword, inp_new_pwd_retyped);
-                    values.put(DBManager.Account_ColID, user_id);
-
-
-                    String[] SelectionArgs = {user_id};
-                    int count = dbManager.Update("Account", values, "ID=?", SelectionArgs);
-
-                    if (count > 0) {
-                        Toast.makeText(ChangePwdActivity.this, "Cập nhật mật khẩu thành công!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent();
-                        intent.setClass(ChangePwdActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                    } else
-                        Toast.makeText(getApplicationContext(), "Lỗi cập nhật!", Toast.LENGTH_SHORT).show();
-                }
+                updatePassword();
             }
         });
     }
@@ -114,5 +79,44 @@ public class ChangePwdActivity extends AppCompatActivity {
         intent.setClass(ChangePwdActivity.this, AccountActivity.class);
         intent.putExtra("user_id", user_id);
         startActivity(intent);
+    }
+
+    public void updatePassword() {
+        String inp_old_pwd = old_pwd.getText().toString().trim();
+        String inp_new_pwd = new_pwd.getText().toString().trim();
+        String inp_new_pwd_retyped = new_pwd_retyped.getText().toString().trim();
+
+        if (inp_old_pwd.equals("") || inp_new_pwd.equals("") || inp_new_pwd_retyped.equals("")) {
+            Toast.makeText(getApplicationContext(), "Chưa nhập đủ thông tin!", Toast.LENGTH_SHORT).show();
+        }
+        else if (!inp_old_pwd.equals(password)){
+            Toast.makeText(getApplicationContext(), "Sai mật khẩu cũ!", Toast.LENGTH_SHORT).show();
+        }
+        else if (inp_new_pwd.equals(password)){
+            Toast.makeText(getApplicationContext(), "Mật khẩu mới phải khác mật khẩu cũ!", Toast.LENGTH_SHORT).show();
+        }
+        else if (!inp_new_pwd.equals(inp_new_pwd_retyped)){
+            Toast.makeText(getApplicationContext(), "Mật khẩu mới và mật khẩu nhập lại phải giống nhau!", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            ContentValues values = new ContentValues();
+
+            values.put(DBManager.Account_ColFullName, fname);
+            values.put(DBManager.Account_ColEmail, email);
+            values.put(DBManager.Account_ColPassword, inp_new_pwd_retyped);
+            values.put(DBManager.Account_ColID, user_id);
+
+
+            String[] SelectionArgs = {user_id};
+            int count = dbManager.Update("Account", values, "ID=?", SelectionArgs);
+
+            if (count > 0) {
+                Toast.makeText(ChangePwdActivity.this, "Cập nhật mật khẩu thành công!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(ChangePwdActivity.this, LoginActivity.class);
+                startActivity(intent);
+            } else
+                Toast.makeText(getApplicationContext(), "Lỗi cập nhật!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

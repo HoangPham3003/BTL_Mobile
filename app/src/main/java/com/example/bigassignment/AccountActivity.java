@@ -85,32 +85,7 @@ public class AccountActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String name_edited = info_name.getText().toString().trim();
-                String email_edited = info_email.getText().toString().trim();
-
-                if (name_edited.equals("") || email_edited.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Chưa nhập đủ thông tin cá nhân!", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    ContentValues values = new ContentValues();
-
-                    values.put(DBManager.Account_ColFullName, name_edited);
-                    values.put(DBManager.Account_ColEmail, email_edited);
-                    values.put(DBManager.Account_ColPassword, password);
-                    values.put(DBManager.Account_ColID, user_id);
-
-
-                    String[] SelectionArgs = {user_id};
-                    int count = dbManager.Update("Account", values, "ID=?", SelectionArgs);
-
-                    if (count > 0) {
-                        txt_name.setText(name_edited);
-                        info_name.setText(name_edited);
-                        info_email.setText(email_edited);
-                        Toast.makeText(AccountActivity.this, "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
-                    } else
-                        Toast.makeText(getApplicationContext(), "Lỗi cập nhật!", Toast.LENGTH_SHORT).show();
-                }
+                updateInfo();
             }
         });
 
@@ -134,5 +109,34 @@ public class AccountActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void updateInfo() {
+        String name_edited = info_name.getText().toString().trim();
+        String email_edited = info_email.getText().toString().trim();
+
+        if (name_edited.equals("") || email_edited.equals("")) {
+            Toast.makeText(getApplicationContext(), "Chưa nhập đủ thông tin cá nhân!", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            ContentValues values = new ContentValues();
+
+            values.put(DBManager.Account_ColFullName, name_edited);
+            values.put(DBManager.Account_ColEmail, email_edited);
+            values.put(DBManager.Account_ColPassword, password);
+            values.put(DBManager.Account_ColID, user_id);
+
+
+            String[] SelectionArgs = {user_id};
+            int count = dbManager.Update("Account", values, "ID=?", SelectionArgs);
+
+            if (count > 0) {
+                txt_name.setText(name_edited);
+                info_name.setText(name_edited);
+                info_email.setText(email_edited);
+                Toast.makeText(AccountActivity.this, "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
+            } else
+                Toast.makeText(getApplicationContext(), "Lỗi cập nhật!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
